@@ -13,7 +13,7 @@
 
   <style>
     body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(135deg, #f8fafc, #dbeafe, #bfdbfe);
       color: white;
       margin: 0;
       padding: 0;
@@ -50,25 +50,25 @@
     <div class="card">
       <h2 class="mb-4">Painel de Ações</h2>
 
-      <a href="#" class="btn btn-primary btn-action">
-        <i class="fas fa-plus me-2"></i>Cadastrar
+      <a href="{% url 'criar_link' %}" class="btn btn-secondary btn-action">
+        <i class="fas fa-plus me-2"></i>Cadastrar Link
       </a>
 
-      <a href="#" class="btn btn-secondary btn-action">
+      <a href="{% url 'listar_links' %}" class="btn btn-secondary btn-action">
         <i class="fas fa-list me-2"></i>Listar
       </a>
 
-      <a href="#" class="btn btn-warning btn-action text-white">
+      <a href="{% url 'listar_links' %}" class="btn btn-secondary btn-action text-white">
         <i class="fas fa-edit me-2"></i>Editar
       </a>
 
-      <a href="#" class="btn btn-danger btn-action">
+      <a href="{% url 'listar_links' %}" class="btn btn-secondary btn-action">
         <i class="fas fa-trash-alt me-2"></i>Excluir
       </a>
 
       <form method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
-        <button type="submit" class="btn btn-outline-dark w-100 mt-3">
+        <button type="submit" class="btn btn-danger w-100 mt-3">
           <i class="fas fa-sign-out-alt me-2"></i>Logout
         </button>
       </form>

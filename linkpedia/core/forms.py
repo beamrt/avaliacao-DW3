@@ -46,3 +46,40 @@ class LoginForm(ModelForm):
                 raise ValidationError("Senha incorreta para o e-mail informado.")
 
             self.user = user
+
+
+from .models import LinkModel
+
+
+class LinkForm(ModelForm):
+
+    class Meta:
+
+        model = LinkModel
+
+        fields = (
+            'titulo',
+            'link',
+            'observacao'
+        )
+
+        labels = {
+            'titulo': 'Título',
+            'link': 'Link',
+            'observacao': 'Observação',
+        }
+
+        widgets = {
+
+            'titulo': forms.TextInput(attrs={
+                'class': 'form-control'
+            }),
+
+            'link': forms.URLInput(attrs={
+                'class': 'form-control'
+            }),
+
+            'observacao': forms.Textarea(attrs={
+                'class': 'form-control'
+            }),
+        }
