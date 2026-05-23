@@ -33,3 +33,30 @@ class ListaLinksTest(TestCase):
             response,
             'listar.html'
         )
+
+class CriarLinkTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username='aluno',
+            email='aluno@cps.sp.gov.br',
+            password='fatec'
+        )
+    def test_criar_link(self):
+        self.client.login(
+            username='aluno',
+            password='fatec'
+        )
+
+        response = self.client.post(
+            reverse('criar_link'),
+            {
+                'titulo': 'Github',
+                'link': 'https://github.com',
+                'observacao': 'Teste'
+            }
+        )
+
+        self.assertEqual(
+            LinkModel.objects.count(),
+            1
+        )
